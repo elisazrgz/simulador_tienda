@@ -1,0 +1,32 @@
+header{
+    background-color: aquamarine;
+    border: 1px solid;
+    height: 60px;
+    width: 100%;
+}
+
+footer{
+    background-color: aquamarine;
+    height: 60px;
+    width: 100%;
+    border: 1px solid;
+}
+
+.contHeader, .contFooter{
+    margin-inline: 10%;
+}
+
+.contProducts{
+    margin-inline: 20%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5%;
+}
+
+.contPill{
+    width: 30%;
+}
+
+.imgFormat{
+    height: 200px;
+}
