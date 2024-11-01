@@ -1,32 +1,98 @@
-header{
-    background-color: aquamarine;
-    border: 1px solid;
+/* color links #1B4079 */
+
+body{
+    box-sizing: border-box;
+    font-family: Helvetica, sans-serif;
+}
+
+/* HEADER + FOOTER */
+
+header, footer{
+    background-color: #4D7C8A;
     height: 60px;
     width: 100%;
+    color: white;
+}
+
+header{
+    position: fixed;
+    top: 0;
 }
 
 footer{
-    background-color: aquamarine;
-    height: 60px;
-    width: 100%;
-    border: 1px solid;
+    position: fixed;
+    bottom: 0;
 }
 
 .contHeader, .contFooter{
     margin-inline: 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
 }
+
+.headerMenu{
+    display: flex;
+    gap: 10px;
+}
+
+.menuItem, a{
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+}
+
+.headerButtons{
+    display: flex;
+    align-content: center;
+    cursor: pointer;
+    gap: 10px;
+}
+
+/* SECCIÓN PRINCIPAL */
 
 .contProducts{
     margin-inline: 20%;
+    margin-block: 100px;
     display: flex;
     flex-wrap: wrap;
-    gap: 5%;
+    gap: 5px;
 }
+
+/* PILLS */
 
 .contPill{
     width: 30%;
+    background-color: #f5f5f5;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 10px;
 }
 
 .imgFormat{
-    height: 200px;
+    width: 100%;
+}
+
+/* CARRITO */
+
+.shoppingCart{
+    width: 20vw;
+    background-color: #4D7C8A;
+    color: white;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 10px;
+    margin-inline: 10%;
+    position: fixed;
+    right: 0;
+    transition: 1s;
+}
+
+.hidden{
+    display: none;
 }

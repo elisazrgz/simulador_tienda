@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda online</title>
     <link href="./reset.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet" />
     <link href="./styles.css" rel="stylesheet" />
     <script src="./data.js" defer></script>
     <script src="./script.js" defer></script>
@@ -12,18 +13,44 @@
 <body>
     
     <header>
+        <!-- barra del header -->
         <div class="contHeader">
-            HEADER
+            <h1>HEADER</h1>
+            
+            <nav>
+                <ul class="headerMenu">
+                    <li class="menuItem"><a href="#">Inicio</a></li>
+                    <li class="menuItem"><a href="#">Plantas</a></li>
+                    <li class="menuItem"><a href="#">Blog</a></li>
+                    <li class="menuItem"><a href="#">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <div class="headerButtons">
+                <i class="fa-solid fa-envelope"><a href="#"></a></i>
+                <i class="fa-solid fa-phone"><a href="#"></a></i>
+                <i class="fa-solid fa-cart-shopping" id="toggleCartButton"><a href="#"></a></i>
+                <i class="fa-solid fa-user"><a href="#"></a></i>
+            </div>
+        </div>
+
+        <!-- carrito de la compra -->
+        <div class="shoppingCart hidden">
+            <h3>Tu compra</h3>
+            <div class="listCart"></div>
+            <h3>Total: €</h3>
         </div>
     </header>
 
     <main>
+        <!-- sección principal donde se añaden dinámicamente las píldoras (productos) -->
         <div class="contProducts"></div>
+        
     </main>
 
     <footer>
         <div class="contFooter">
-            FOOTER
+            The plant shop © 2024 - Todos los derechos reservados
         </div>
     </footer>
 
