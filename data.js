@@ -7,7 +7,7 @@ const productos = [
         imagen: "images/helecho1.jpg",
         descripcion: "Una planta muy purificadora y de fácil cultivo.",
         precio: 6.75,
-        stock: 20 },
+        stock: 2 },
     { id: 2,
         nombre: "Pernetia",
         imagen: "images/pernetia.jpg",
