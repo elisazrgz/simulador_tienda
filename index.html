@@ -6,23 +6,38 @@
     <title>Tienda online</title>
     <link href="./reset.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet" />
+    <!-- FUENTE "Changa One" -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Changa+One:ital@0;1&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- FINAL FUENTE -->
     <link href="./styles.css" rel="stylesheet" />
     <script src="./data.js" defer></script>
     <script src="./script.js" defer></script>
 </head>
+
+<!-- LEYENDA TEXTOS
+ h1 - título/nombre tienda
+ h2 - enlaces header y texto footer
+ h3 - título y total de carrito, título y total de las píldoras
+ h4 - líneas productos carrito
+ p - descripciones producto
+-->
+
 <body>
     
     <header>
         <!-- barra del header -->
         <div class="contHeader">
-            <h1>HEADER</h1>
+            <h1>Floraly</h1> <!-- seedIt, floraly, -->
             
             <nav>
                 <ul class="headerMenu">
-                    <li class="menuItem"><a href="#">Inicio</a></li>
-                    <li class="menuItem"><a href="#">Plantas</a></li>
-                    <li class="menuItem"><a href="#">Blog</a></li>
-                    <li class="menuItem"><a href="#">Contacto</a></li>
+                    <li class="menuItem"><h2><a href="#">Inicio</a></h2></li>
+                    <li class="menuItem"><h2><a href="#">Novedades</a></h2></li>
+                    <li class="menuItem"><h2><a href="#">Plantas</a></h2></li>
+                    <li class="menuItem"><h2><a href="#">Semillas</a></h2></li>
+                    <li class="menuItem"><h2><a href="#">Blog</a></h2></li>
                 </ul>
             </nav>
 
@@ -37,16 +52,16 @@
         <!-- carrito de la compra -->
         <div class="shoppingCart hidden">
             <h3>Tu compra</h3>
-            <table class="listCart">
-                <tr>
-                    <th>Producto</th>
-                    <th>Precio</th>
-                    <th></th>
-                    <th>no.</th>
-                    <th></th>
-                    <th>Total</th>
+            <table>
+                <tr class="mainRow">
+                    <th><h4>Producto</h4></th>
+                    <th><h4>Precio</h4></th>
+                    <th><h4></h4></th>
+                    <th><h4>no.</h4></th>
+                    <th><h4></h4></th>
+                    <th><h4>Total</h4></th>
                 </tr>
-                <tr>
+                <tr class="listCart">
                 </tr>
             </table>
             <h3>Total: <span id="totalPrice"></span></h3>
@@ -62,7 +77,7 @@
 
     <footer>
         <div class="contFooter">
-            The plant shop © 2024 - Todos los derechos reservados
+            <h2>Floraly © 2024 - Todos los derechos reservados</h2>
         </div>
     </footer>
 

@@ -1,3 +1,4 @@
+// seleccionamos el espacio del documento que va a contener las píldoras:
 
 let $container = document.querySelector(".contProducts")
 
@@ -25,13 +26,14 @@ for(let product of productos){
     $description.textContent = product.descripcion;
     $pill.appendChild($description);
 
-    let $price = document.createElement("p");
-    $price.textContent = product.precio + " €";
+    let $price = document.createElement("h3");
+    $price.textContent = "Precio: " + product.precio + " €";
     $pill.appendChild($price);
 
     // la propiedad stock no la añado al pill porque la utilizaré para hacer condicionales después
 
     let $btnAddToCart = document.createElement("button")
+    $btnAddToCart.classList.add("btnAddToCart")
     $btnAddToCart.textContent = "Agregar al carrito";
     $pill.appendChild($btnAddToCart);
     $btnAddToCart.addEventListener("click", addToCart);
@@ -85,20 +87,21 @@ function addToCart(){
 function refreshProductsInsideCart() {
     let $listCart = document.querySelector(".listCart");
     $listCart.innerHTML = "";
-    // de esta forma borro el contenido que hubiera en el carrito previamente a construirlo
+    // de esta forma borro el contenido que hubiera en el carrito previamente
 
     let totalPrice = 0;
     for (let productId in productsInsideCart){
         let product = productsInsideCart[productId];
         let $tr = document.createElement("tr");
         $tr.dataset.id = product.id;
+        $tr.classList.add("rowFormat")
         $tr.innerHTML = `
-        <td>${product.title}</td>
-        <td>${product.price}€</td>
-        <td><button class="removeItem fa-solid fa-minus"></button></td>
-        <td>${product.count}</td>
-        <td><button class="addItem fa-solid fa-plus"></button></td>
-        <td>${product.count * product.price}€</td>
+        <td><h4>${product.title}</h4></td>
+        <td><h4>${product.price}€</h4></td>
+        <td><h4><button class="removeItem fa-solid fa-minus"></button></h4></td>
+        <td><h4>${product.count}</h4></td>
+        <td><h4><button class="addItem fa-solid fa-plus"></button></h4></td>
+        <td><h4>${product.count * product.price}€</h4></td>
         `;
 
         let $addBtn = $tr.querySelector(".addItem");
@@ -149,9 +152,10 @@ function modifyCartItemCount(productId, change){
     refreshProductsInsideCart();
 }
 
-// añadimos un evento y función para el mensaje cuando quieres finalizar con carrito vacíon
+// añadimos un evento y función para el mensaje cuando quieres finalizar con carrito vacío
 
 let $checkoutBtn = document.querySelector(".checkoutBtn")
+$checkoutBtn.classList.add("checkoutBtn");
 $checkoutBtn.addEventListener("click", checkoutNotPossible);
 
 function checkoutNotPossible() {

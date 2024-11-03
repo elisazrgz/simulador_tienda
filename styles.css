@@ -2,7 +2,24 @@
 
 body{
     box-sizing: border-box;
+    
+}
+
+/* FORMATOS TEXTOS */
+
+h1{
+    font-family: "Changa One";
+    font-size: 40px;
+}
+
+h2, h3{
     font-family: Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+h4, p{
+    font-family: Helvetica, sans-serif;
+    font-size: 15px;
 }
 
 /* HEADER + FOOTER */
@@ -27,6 +44,7 @@ footer{
 .contHeader, .contFooter{
     margin-inline: 10%;
     display: flex;
+    gap: 10%;
     justify-content: space-between;
     align-items: center;
     height: 100%;
@@ -34,7 +52,7 @@ footer{
 
 .headerMenu{
     display: flex;
-    gap: 10px;
+    gap: 20px;
 }
 
 .menuItem, a{
@@ -47,7 +65,7 @@ footer{
     display: flex;
     align-content: center;
     cursor: pointer;
-    gap: 10px;
+    gap: 20px;
 }
 
 /* SECCIÓN PRINCIPAL */
@@ -57,23 +75,39 @@ footer{
     margin-block: 100px;
     display: flex;
     flex-wrap: wrap;
-    gap: 5px;
+    gap: 20px;
 }
 
 /* PILLS */
 
 .contPill{
-    width: 30%;
+    width: 25%;
     background-color: #f5f5f5;
     display: flex;
-    gap: 10px;
+    gap: 20px;
     flex-wrap: wrap;
     flex-direction: column;
-    padding: 10px;
+    padding: 20px;
 }
 
 .imgFormat{
     width: 100%;
+}
+
+.btnAddToCart{
+    background-color: #4D7C8A;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    border: #4D7C8A solid 2px;
+    border-radius: 5px;
+
+}
+
+.btnAddToCart:hover{
+    cursor: pointer;
+    background-color: #f5f5f5;
+    color: #4D7C8A;
 }
 
 /* CARRITO */
@@ -95,4 +129,62 @@ footer{
 
 .hidden{
     display: none;
+}
+
+table{
+    background-color: #f5f5f5;
+    border-radius: 5px;
+}
+
+.mainRow{
+    background-color: #f5f5f5;
+    color: #4D7C8A;
+    display: flex;
+    justify-content: space-around;
+    margin: 5px;
+    font-weight: bold;
+}
+
+.rowFormat{
+    background-color: #f5f5f5;
+    color: #4D7C8A;
+    display: flex;
+    justify-content: space-around;
+    margin: 5px;
+}
+
+.fa-minus {
+    border: none;
+    background-color: #dedede;
+}
+
+.fa-minus:hover {
+    cursor: pointer;
+    background-color: #f5f5f5;
+}
+
+.fa-plus{
+    border: none;
+    background-color: #dedede;
+}
+
+.fa-plus:hover {
+    cursor: pointer;
+    background-color: #f5f5f5;
+}
+
+.checkoutBtn{
+    background-color: #f5f5f5;
+    color:#4D7C8A;
+    padding: 5px;
+    font-weight: bold;
+    border: #f5f5f5 solid 2px;
+    border-radius: 5px;
+}
+
+.checkoutBtn:hover{
+    cursor: pointer;
+    background-color: #4D7C8A;
+    color: white;
+    border: #f5f5f5 solid 2px;
 }
