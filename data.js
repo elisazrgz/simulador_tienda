@@ -84,7 +84,3 @@ const productos = [
         precio: 22,
         stock: 8 },
   ];
-
-  
-  
-  // web referencia para los productos e imágenes: https://www.fronda.com/comprar/plantas-de-interior?sorting%5BtotalSales%5D=desc

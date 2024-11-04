@@ -1,3 +1,4 @@
+/* ESTILOS TEXTOS */
 
 h1{
     font-family: "Changa One";
@@ -127,7 +128,7 @@ i:hover{
     transition: 1s;
 }
 
-.hidden{
+.hide{
     display: none;
 }
 

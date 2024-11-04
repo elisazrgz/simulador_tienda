@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda online</title>
+    <!-- HOJA RESET -->
     <link href="./reset.css" rel="stylesheet" />
     <!-- FONT AWESOME -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet" />
@@ -11,8 +12,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Changa+One:ital@0;1&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <!-- FINAL FUENTE -->
+    <!-- HOJA ESTILOS -->    
     <link href="./styles.css" rel="stylesheet" />
+    <!-- ARCHIVOS JAVASCRIPT -->    
     <script src="./data.js" defer></script>
     <script src="./script.js" defer></script>
 </head>
@@ -25,6 +27,7 @@
             <h1>Floraly</h1>
             
             <nav>
+                <!-- links nav -->
                 <ul class="headerMenu">
                     <li class="menuItem"><h2><a href="#">Inicio</a></h2></li>
                     <li class="menuItem"><h2><a href="#">Novedades</a></h2></li>
@@ -35,6 +38,7 @@
             </nav>
 
             <div class="headerButtons">
+                <!-- links iconos -->
                 <i class="fa-solid fa-envelope"><a href="#"></a></i>
                 <i class="fa-solid fa-phone"><a href="#"></a></i>
                 <i class="fa-solid fa-cart-shopping" id="btnToggleCart"><a href="#"></a></i>
@@ -43,7 +47,7 @@
         </div>
 
         <!-- carrito de la compra -->
-        <div class="contShoppingCart hidden">
+        <div class="contShoppingCart hide">
             <h3>Tu compra</h3>
             <table>
                 <!-- fila de títulos del carrito -->
@@ -58,13 +62,14 @@
                 <!-- filas donde se cargan los productos que se añaden al carrito -->
                 <tr class="listCart"></tr>
             </table>
+            <!-- precio total y checkout -->
             <h3>Total: <span id="totalPrice"></span></h3>
             <button class="btnCheckout">Finalizar compra</button>
         </div>
     </header>
 
     <main>
-        <!-- sección principal donde se añaden dinámicamente las píldoras (productos) -->
+        <!-- sección principal donde se añaden dinámicamente las píldoras -->
         <div class="contProducts"></div>
     </main>
 

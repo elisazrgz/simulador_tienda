@@ -45,7 +45,7 @@ $btnToggleCart.addEventListener("click", toggleCart);
 
 function toggleCart(){
     let $contShoppingCart = document.querySelector(".contShoppingCart");
-    $contShoppingCart.classList.toggle("hidden");
+    $contShoppingCart.classList.toggle("hide");
 }
 
 // FUNCIÓN PARA AÑADIR LOS PRODUCTOS SELECCIONADOS AL CARRITO
@@ -61,7 +61,7 @@ function addToCart(){
     let stock = $pill.dataset.stock;
 
     if (!productsInsideCart.hasOwnProperty(id)){
-        // si no existe lo añadimos (se inicializa a 0 y con la función modifyCartItemCount se suma uno):
+        // si no existe lo añadimos (se inicializa a 0 y en el siguiente paso se suma uno):
         productsInsideCart[id] = {
             id: parseInt(id),
             title: title,
@@ -72,13 +72,13 @@ function addToCart(){
     }
     // si ya existía simplemente se le añade uno más:
     modifyCartItemCount(id, 1);
-    refreshProductsInsideCart();
+    updateProductsInsideCart();
 
 }
 
-// FUNCIÓN QUE REFRESCA EL CARRITO Y MUESTRA EL PRECIO TOTAL
+// FUNCIÓN QUE ACTUALIZA LAS FILAS DEL CARRITO Y MUESTRA EL PRECIO TOTAL
 
-function refreshProductsInsideCart() {
+function updateProductsInsideCart() {
     let $listCart = document.querySelector(".listCart");
     $listCart.innerHTML = "";
     // se borra el contenido que hubiera en el carrito previamente
@@ -127,6 +127,8 @@ function modifyCartRemoveItem(){
     modifyCartItemCount(productId, -1);
 }
 
+// FUNCIÓN DE CONTROL DE STOCK
+
 function modifyCartItemCount(productId, change){
     if (productsInsideCart[productId].count + change > productsInsideCart[productId].stock){
         alert("Lo sentimos, en este momento no disponemos de más stock");
@@ -139,21 +141,21 @@ function modifyCartItemCount(productId, change){
         // si la cantidad del producto es 0 (o menor) se borra del carrito    
     }
 
-    refreshProductsInsideCart();
+    updateProductsInsideCart();
 }
 
 // FUNCIÓN QUE MUESTRA LOS MENSAJES AL PROCEDER CON LA COMPRA (TANTO CON CARRITO VACÍO O LLENO)
 
 let $btnCheckout = document.querySelector(".btnCheckout")
 $btnCheckout.classList.add("btnCheckout");
-$btnCheckout.addEventListener("click", checkoutNotPossible);
+$btnCheckout.addEventListener("click", checkIfPurchaseIsPossible);
 
-function checkoutNotPossible() {
+function checkIfPurchaseIsPossible() {
     if(Object.keys(productsInsideCart).length === 0){
         alert("Por favor añada productos al carrito para proceder con la compra")
     } else {
         alert("Gracias por su compra")
         productsInsideCart = {};
-        refreshProductsInsideCart();
+        updateProductsInsideCart();
     }
 } 
