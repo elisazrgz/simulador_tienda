@@ -63,6 +63,14 @@ footer{
     color: inherit;
 }
 
+a:hover{
+    color: #dedede;
+}
+
+i:hover{
+    color: #dedede;
+}
+
 .headerButtons{
     display: flex;
     align-content: center;

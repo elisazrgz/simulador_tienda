@@ -1,8 +1,8 @@
-// seleccionamos el espacio del documento que va a contener las píldoras:
+// SELECCIÓN DE CONTENEDOR DONDE VAN A IR LAS PÍLDORAS
 
 let $container = document.querySelector(".contProducts")
 
-// recorremos el array de productos para imprimir cada píldora:
+// BUCLE DEL OBJETO CON LOS PRODUCTOS PARA IMPRIMIRLOS DINÁMICAMENTE EN EL HTML
 
 for(let product of productos){
     let $pill = document.createElement("div");
@@ -11,7 +11,6 @@ for(let product of productos){
     $pill.dataset.title = product.nombre;
     $pill.dataset.price = product.precio;
     $pill.dataset.stock = product.stock;
-    // dataset es la información de cada píldora que me interesará utilizar luego
 
     let $title = document.createElement("h3");
     $title.textContent = product.nombre;
@@ -39,7 +38,7 @@ for(let product of productos){
     $container.appendChild($pill);
 }
 
-// creamos la función para que el carrito se muestre u oculte al hacer click:
+// FUNCIÓN PARA QUE EL CARRITO SE MUESTRE/OCULTE AL HACER CLICK EN EL ICONO
 
 let $btnToggleCart = document.querySelector("#btnToggleCart");
 $btnToggleCart.addEventListener("click", toggleCart);
@@ -47,16 +46,14 @@ $btnToggleCart.addEventListener("click", toggleCart);
 function toggleCart(){
     let $contShoppingCart = document.querySelector(".contShoppingCart");
     $contShoppingCart.classList.toggle("hidden");
-    // toggle quiere decir que si esa clase está la quita, y si no la añade
 }
 
-// creamos el objeto del carrito y la función que aparece en el evento del botón para añadir producto a carrito
+// FUNCIÓN PARA AÑADIR LOS PRODUCTOS SELECCIONADOS AL CARRITO
 
-let productsInsideCart = {};
+let productsInsideCart = {}; // objeto que guarda los productos del carrito ("lista de la compra")
 
 function addToCart(){
     let $pill = this.closest(".contPill");
-    // hay que definir aquí la píldora porque no está dentro del scope
 
     let id = $pill.dataset.id;
     let title = $pill.dataset.title;
@@ -64,23 +61,22 @@ function addToCart(){
     let stock = $pill.dataset.stock;
 
     if (!productsInsideCart.hasOwnProperty(id)){
-        // si no existe lo añadimos con el condicional (lo inializamos a 0 y luego con la función modifyCartItemCount se suma uno):
+        // si no existe lo añadimos con el condicional (se inicializa a 0 y con la función modifyCartItemCount se suma uno):
         productsInsideCart[id] = {
-            id: parseInt(id), //parse porque estos valores estaban guardados como string y no como num
+            id: parseInt(id),
             title: title,
             price: parseInt(price),
             count: 0,
             stock: parseInt(stock)
         }
     }
-    // y si ya existía simplemente se le añade uno más:
-    // (así solo tengo que controlar el stock dentro de la función modifyCartItemCount)
+    // si ya existía simplemente se le añade uno más:
     modifyCartItemCount(id, 1);
     refreshProductsInsideCart();
 
 }
 
-// creamos la función que refresca el carrito de forma visible (en el documento html) + muestra el precio total del carrito
+// FUNCIÓN QUE REFRESCA EL CARRITO Y MUESTRA EL PRECIO TOTAL
 
 function refreshProductsInsideCart() {
     let $listCart = document.querySelector(".listCart");
@@ -117,7 +113,7 @@ function refreshProductsInsideCart() {
     $totalPrice.textContent = totalPrice + " €";
 }
 
-// creamos las funciones de los eventos +/- del carrito
+// FUNCIONES DE LOS BOTONES -/+ DEL CARRITO
 
 function modifyCartAddItem(){
     let $row = this.closest("tr");
@@ -132,25 +128,21 @@ function modifyCartRemoveItem(){
 }
 
 function modifyCartItemCount(productId, change){
-    if (!productsInsideCart.hasOwnProperty(productId)){
-        console.error("The product is not inside the shopping Cart");
-    }
-    // esto creo que no hace falta porque ha dicho que es un mensaje para el programador que el día de mañana utilice la función noseque (1:00:00)
-
     if (productsInsideCart[productId].count + change > productsInsideCart[productId].stock){
         alert("Lo sentimos, en este momento no disponemos de más stock");
+        // si el count es mayor al stock no se puede seguir sumando unidades
     } else {
         productsInsideCart[productId].count += change;
         if (productsInsideCart[productId].count <= 0){
             delete productsInsideCart[productId];
         }
-        // esto hace que cuando la cantidad del producto sea 0 (o menor) se borre del carrito    
+        // si la cantidad del producto es 0 (o menor) se borra del carrito    
     }
 
     refreshProductsInsideCart();
 }
 
-// evento y función para el mensaje cuando quieres finalizar con carrito vacío
+// FUNCIÓN QUE MUESTRA LOS MENSAJES AL PROCEDER CON LA COMPRA (TANTO CON CARRITO VACÍO O LLENO)
 
 let $btnCheckout = document.querySelector(".btnCheckout")
 $btnCheckout.classList.add("btnCheckout");
