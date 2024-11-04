@@ -61,7 +61,7 @@ function addToCart(){
     let stock = $pill.dataset.stock;
 
     if (!productsInsideCart.hasOwnProperty(id)){
-        // si no existe lo añadimos con el condicional (se inicializa a 0 y con la función modifyCartItemCount se suma uno):
+        // si no existe lo añadimos (se inicializa a 0 y con la función modifyCartItemCount se suma uno):
         productsInsideCart[id] = {
             id: parseInt(id),
             title: title,

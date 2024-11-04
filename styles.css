@@ -222,3 +222,28 @@ table{
   }
 
 }
+
+/* ipads */
+
+@media screen and (min-width: 600px) and (max-width: 992px) {
+    
+    footer{
+        position: static;
+      }
+    
+      .headerMenu{
+        display: none;
+      }
+    
+      .contShoppingCart{
+        width: 80vw;
+      }
+    
+      .contPill {
+        width: 40%;
+      }
+    
+      .contProducts{
+        margin-inline: 10%;
+      }
+}
