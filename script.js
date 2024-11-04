@@ -138,7 +138,7 @@ function modifyCartItemCount(productId, change){
     // esto creo que no hace falta porque ha dicho que es un mensaje para el programador que el día de mañana utilice la función noseque (1:00:00)
 
     if (productsInsideCart[productId].count + change > productsInsideCart[productId].stock){
-        alert("Lo sentimos, estamos temporalmente fuera de stock");
+        alert("Lo sentimos, en este momento no disponemos de más stock");
     } else {
         productsInsideCart[productId].count += change;
         if (productsInsideCart[productId].count <= 0){
@@ -158,9 +158,9 @@ $btnCheckout.addEventListener("click", checkoutNotPossible);
 
 function checkoutNotPossible() {
     if(Object.keys(productsInsideCart).length === 0){
-        alert("Por favor añade productos al carrito para proceder con la compra")
+        alert("Por favor añada productos al carrito para proceder con la compra")
     } else {
-        alert("Gracias por su compra :)")
+        alert("Gracias por su compra")
         productsInsideCart = {};
         refreshProductsInsideCart();
     }
