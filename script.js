@@ -30,8 +30,6 @@ for(let product of productos){
     $price.textContent = "Precio: " + product.precio + " €";
     $pill.appendChild($price);
 
-    // la propiedad stock no la añado al pill porque la utilizaré para hacer condicionales después
-
     let $btnAddToCart = document.createElement("button")
     $btnAddToCart.classList.add("btnAddToCart")
     $btnAddToCart.textContent = "Agregar al carrito";
@@ -43,12 +41,12 @@ for(let product of productos){
 
 // creamos la función para que el carrito se muestre u oculte al hacer click:
 
-let $toggleCartButton = document.querySelector("#toggleCartButton");
-$toggleCartButton.addEventListener("click", toggleCart);
+let $btnToggleCart = document.querySelector("#btnToggleCart");
+$btnToggleCart.addEventListener("click", toggleCart);
 
 function toggleCart(){
-    let $shoppingCart = document.querySelector(".shoppingCart");
-    $shoppingCart.classList.toggle("hidden");
+    let $contShoppingCart = document.querySelector(".contShoppingCart");
+    $contShoppingCart.classList.toggle("hidden");
     // toggle quiere decir que si esa clase está la quita, y si no la añade
 }
 
@@ -87,7 +85,7 @@ function addToCart(){
 function refreshProductsInsideCart() {
     let $listCart = document.querySelector(".listCart");
     $listCart.innerHTML = "";
-    // de esta forma borro el contenido que hubiera en el carrito previamente
+    // se borra el contenido que hubiera en el carrito previamente
 
     let totalPrice = 0;
     for (let productId in productsInsideCart){
@@ -96,12 +94,12 @@ function refreshProductsInsideCart() {
         $tr.dataset.id = product.id;
         $tr.classList.add("rowFormat")
         $tr.innerHTML = `
-        <td><h4>${product.title}</h4></td>
-        <td><h4>${product.price}€</h4></td>
-        <td><h4><button class="removeItem fa-solid fa-minus"></button></h4></td>
-        <td><h4>${product.count}</h4></td>
-        <td><h4><button class="addItem fa-solid fa-plus"></button></h4></td>
-        <td><h4>${product.count * product.price}€</h4></td>
+        <td class="cellFormat"><h4>${product.title}</h4></td>
+        <td class="cellFormat"><h4>${product.price}€</h4></td>
+        <td class="cellFormat"><h4><button class="removeItem fa-solid fa-minus"></button></h4></td>
+        <td class="cellFormat"><h4>${product.count}</h4></td>
+        <td class="cellFormat"><h4><button class="addItem fa-solid fa-plus"></button></h4></td>
+        <td class="cellFormat"><h4>${product.count * product.price}€</h4></td>
         `;
 
         let $addBtn = $tr.querySelector(".addItem");
@@ -119,7 +117,7 @@ function refreshProductsInsideCart() {
     $totalPrice.textContent = totalPrice + " €";
 }
 
-// creamos las funciones de los eventos de los botones +/- del carrito
+// creamos las funciones de los eventos +/- del carrito
 
 function modifyCartAddItem(){
     let $row = this.closest("tr");
@@ -152,11 +150,11 @@ function modifyCartItemCount(productId, change){
     refreshProductsInsideCart();
 }
 
-// añadimos un evento y función para el mensaje cuando quieres finalizar con carrito vacío
+// evento y función para el mensaje cuando quieres finalizar con carrito vacío
 
-let $checkoutBtn = document.querySelector(".checkoutBtn")
-$checkoutBtn.classList.add("checkoutBtn");
-$checkoutBtn.addEventListener("click", checkoutNotPossible);
+let $btnCheckout = document.querySelector(".btnCheckout")
+$btnCheckout.classList.add("btnCheckout");
+$btnCheckout.addEventListener("click", checkoutNotPossible);
 
 function checkoutNotPossible() {
     if(Object.keys(productsInsideCart).length === 0){

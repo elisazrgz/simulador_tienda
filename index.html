@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda online</title>
     <link href="./reset.css" rel="stylesheet" />
+    <!-- FONT AWESOME -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet" />
     <!-- FUENTE "Changa One" -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,35 +45,35 @@
             <div class="headerButtons">
                 <i class="fa-solid fa-envelope"><a href="#"></a></i>
                 <i class="fa-solid fa-phone"><a href="#"></a></i>
-                <i class="fa-solid fa-cart-shopping" id="toggleCartButton"><a href="#"></a></i>
+                <i class="fa-solid fa-cart-shopping" id="btnToggleCart"><a href="#"></a></i>
                 <i class="fa-solid fa-user"><a href="#"></a></i>
             </div>
         </div>
 
         <!-- carrito de la compra -->
-        <div class="shoppingCart hidden">
+        <div class="contShoppingCart hidden">
             <h3>Tu compra</h3>
             <table>
+                <!-- fila de títulos del carrito -->
                 <tr class="mainRow">
-                    <th><h4>Producto</h4></th>
-                    <th><h4>Precio</h4></th>
-                    <th><h4></h4></th>
-                    <th><h4>no.</h4></th>
-                    <th><h4></h4></th>
-                    <th><h4>Total</h4></th>
+                    <th class="cellFormat"><h4>Producto</h4></th>
+                    <th class="cellFormat"><h4>Precio</h4></th>
+                    <th class="cellFormat"><h4></h4></th>
+                    <th class="cellFormat"><h4>no.</h4></th>
+                    <th class="cellFormat"><h4></h4></th>
+                    <th class="cellFormat"><h4>Total</h4></th>
                 </tr>
-                <tr class="listCart">
-                </tr>
+                <!-- filas donde se cargan los productos que se añaden al carrito -->
+                <tr class="listCart"></tr>
             </table>
             <h3>Total: <span id="totalPrice"></span></h3>
-            <button class="checkoutBtn">Finalizar compra</button>
+            <button class="btnCheckout">Finalizar compra</button>
         </div>
     </header>
 
     <main>
         <!-- sección principal donde se añaden dinámicamente las píldoras (productos) -->
         <div class="contProducts"></div>
-        
     </main>
 
     <footer>
