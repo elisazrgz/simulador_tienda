@@ -1,12 +1,12 @@
 // SELECCIÓN DE CONTENEDOR DONDE VAN A IR LAS PÍLDORAS
 
-let $container = document.querySelector(".contProducts")
+let $container = document.querySelector(".cont-products")
 
 // BUCLE DEL OBJETO CON LOS PRODUCTOS PARA IMPRIMIRLOS DINÁMICAMENTE EN EL HTML
 
 for(let product of productos){
     let $pill = document.createElement("div");
-    $pill.classList.add("contPill");
+    $pill.classList.add("cont-pill");
     $pill.dataset.id = product.id;
     $pill.dataset.title = product.nombre;
     $pill.dataset.price = product.precio;
@@ -17,7 +17,7 @@ for(let product of productos){
     $pill.appendChild($title);
 
     let $img = document.createElement("img");
-    $img.classList.add("imgFormat");
+    $img.classList.add("img-format");
     $img.src = product.imagen;
     $pill.appendChild($img);
 
@@ -30,7 +30,7 @@ for(let product of productos){
     $pill.appendChild($price);
 
     let $btnAddToCart = document.createElement("button")
-    $btnAddToCart.classList.add("btnAddToCart")
+    $btnAddToCart.classList.add("btn-addtocart")
     $btnAddToCart.textContent = "Agregar al carrito";
     $pill.appendChild($btnAddToCart);
     $btnAddToCart.addEventListener("click", addToCart);
@@ -44,7 +44,7 @@ let $btnToggleCart = document.querySelector("#btnToggleCart");
 $btnToggleCart.addEventListener("click", toggleCart);
 
 function toggleCart(){
-    let $contShoppingCart = document.querySelector(".contShoppingCart");
+    let $contShoppingCart = document.querySelector(".cont-shoppingcart");
     $contShoppingCart.classList.toggle("hide");
 }
 
@@ -53,7 +53,7 @@ function toggleCart(){
 let productsInsideCart = {}; // objeto que guarda los productos del carrito ("lista de la compra")
 
 function addToCart(){
-    let $pill = this.closest(".contPill");
+    let $pill = this.closest(".cont-pill");
 
     let id = $pill.dataset.id;
     let title = $pill.dataset.title;
@@ -88,14 +88,14 @@ function updateProductsInsideCart() {
         let product = productsInsideCart[productId];
         let $tr = document.createElement("tr");
         $tr.dataset.id = product.id;
-        $tr.classList.add("rowFormat")
+        $tr.classList.add("row-format")
         $tr.innerHTML = `
-        <td class="cellFormat"><h4>${product.title}</h4></td>
-        <td class="cellFormat"><h4>${product.price}€</h4></td>
-        <td class="cellFormat"><h4><button class="removeItem fa-solid fa-minus"></button></h4></td>
-        <td class="cellFormat"><h4>${product.count}</h4></td>
-        <td class="cellFormat"><h4><button class="addItem fa-solid fa-plus"></button></h4></td>
-        <td class="cellFormat"><h4>${product.count * product.price}€</h4></td>
+        <td class="cell-format"><h4>${product.title}</h4></td>
+        <td class="cell-format"><h4>${product.price}€</h4></td>
+        <td class="cell-format"><h4><button class="removeItem fa-solid fa-minus"></button></h4></td>
+        <td class="cell-format"><h4>${product.count}</h4></td>
+        <td class="cell-format"><h4><button class="addItem fa-solid fa-plus"></button></h4></td>
+        <td class="cell-format"><h4>${product.count * product.price}€</h4></td>
         `;
 
         let $addBtn = $tr.querySelector(".addItem");
@@ -146,8 +146,8 @@ function modifyCartItemCount(productId, change){
 
 // FUNCIÓN QUE MUESTRA LOS MENSAJES AL PROCEDER CON LA COMPRA (TANTO CON CARRITO VACÍO O LLENO)
 
-let $btnCheckout = document.querySelector(".btnCheckout")
-$btnCheckout.classList.add("btnCheckout");
+let $btnCheckout = document.querySelector(".btn-checkout")
+$btnCheckout.classList.add("btn-checkout");
 $btnCheckout.addEventListener("click", checkIfPurchaseIsPossible);
 
 function checkIfPurchaseIsPossible() {

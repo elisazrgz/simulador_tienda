@@ -23,6 +23,7 @@ header, footer{
     height: 60px;
     width: 100%;
     color: white;
+    z-index: 1000;
 }
 
 header{
@@ -35,7 +36,7 @@ footer{
     bottom: 0;
 }
 
-.contHeader, .contFooter{
+.cont-header, .cont-footer{
     margin-inline: 10%;
     display: flex;
     gap: 10%;
@@ -44,18 +45,19 @@ footer{
     height: 100%;
 }
 
-.headerMenu{
+.header-menu{
     display: flex;
     gap: 20px;
 }
 
-.menuItem, a{
+.menu-item, a{
     cursor: pointer;
     text-decoration: none;
     color: inherit;
+    transition: color 0.3s ease;
 }
 
-a:hover{
+a:hover, .menu-item:hover {
     color: #dedede;
 }
 
@@ -63,7 +65,7 @@ i:hover{
     color: #dedede;
 }
 
-.headerButtons{
+.header-buttons{
     display: flex;
     align-content: center;
     cursor: pointer;
@@ -72,17 +74,19 @@ i:hover{
 
 /* SECCIÓN PRINCIPAL */
 
-.contProducts{
-    margin-inline: 20%;
-    margin-block: 100px;
+.cont-products{
+    margin-inline: 15%;
+    margin-top: 120px;
+    margin-bottom: 100px;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    z-index: 1;
 }
 
 /* PILLS */
 
-.contPill{
+.cont-pill{
     width: 25%;
     background-color: #f5f5f5;
     display: flex;
@@ -90,13 +94,21 @@ i:hover{
     flex-wrap: wrap;
     flex-direction: column;
     padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: 0.3s ease;
 }
 
-.imgFormat{
+.cont-pill:hover {
+    transform: translateY(-10px);
+}
+
+.img-format{
     width: 100%;
+    border-radius: 8px;
 }
 
-.btnAddToCart{
+.btn-addtocart{
     background-color: #4D7C8A;
     color: white;
     padding: 10px;
@@ -105,7 +117,7 @@ i:hover{
     border-radius: 5px;
 }
 
-.btnAddToCart:hover{
+.btn-addtocart:hover{
     cursor: pointer;
     background-color: #f5f5f5;
     color: #4D7C8A;
@@ -113,7 +125,7 @@ i:hover{
 
 /* CARRITO */
 
-.contShoppingCart{
+.cont-shoppingcart{
     width: 40vw;
     background-color: #4D7C8A;
     color: white;
@@ -125,7 +137,11 @@ i:hover{
     margin-inline: 10%;
     position: fixed;
     right: 0;
-    transition: 1s;
+    top: 10vh;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    transition: all 0.3s ease;
 }
 
 .hide{
@@ -137,12 +153,12 @@ table{
     border-radius: 5px;
 }
 
-.cellFormat{
+.cell-format{
     width: 15%;
     text-align: left;
 }
 
-.mainRow{
+.main-row{
     background-color: #f5f5f5;
     color: #4D7C8A;
     display: flex;
@@ -151,7 +167,7 @@ table{
     font-weight: bold;
 }
 
-.rowFormat{
+.row-format{
     background-color: #f5f5f5;
     color: #4D7C8A;
     display: flex;
@@ -160,36 +176,30 @@ table{
     margin: 5px;
 }
 
-.fa-minus {
+.fa-minus, .fa-plus {
     border: none;
     background-color: #dedede;
+    border-radius: 5px;
+    padding: 5px;
+    transition: 0.3s ease;
 }
 
-.fa-minus:hover {
+.fa-minus:hover, .fa-plus:hover {
     cursor: pointer;
     background-color: #f5f5f5;
 }
 
-.fa-plus{
-    border: none;
-    background-color: #dedede;
-}
-
-.fa-plus:hover {
-    cursor: pointer;
-    background-color: #f5f5f5;
-}
-
-.btnCheckout{
+.btn-checkout{
     background-color: #f5f5f5;
     color:#4D7C8A;
     padding: 5px;
     font-weight: bold;
     border: #f5f5f5 solid 2px;
     border-radius: 5px;
+    transition: 0.3s ease;
 }
 
-.btnCheckout:hover{
+.btn-checkout:hover{
     cursor: pointer;
     background-color: #4D7C8A;
     color: white;
@@ -198,7 +208,7 @@ table{
 
 /* MEDIA QUERIES */
 
-/* móviles */
+/* smartphones */
 
 @media screen and (max-width: 600px) {
 
@@ -206,19 +216,19 @@ table{
     position: static;
   }
 
-  .headerMenu{
+  .header-menu{
     display: none;
   }
 
-  .contShoppingCart{
+  .cont-shoppingcart{
     width: 80vw;
   }
 
-  .contPill {
+  .cont-pill {
     width: 100%;
   }
 
-  .contProducts{
+  .cont-products{
     margin-inline: 10%;
   }
 
@@ -232,19 +242,19 @@ table{
         position: static;
       }
     
-      .headerMenu{
+      .header-menu{
         display: none;
       }
     
-      .contShoppingCart{
+      .cont-shoppingcart{
         width: 80vw;
       }
     
-      .contPill {
+      .cont-pill {
         width: 40%;
       }
     
-      .contProducts{
+      .cont-products{
         margin-inline: 10%;
       }
 }
